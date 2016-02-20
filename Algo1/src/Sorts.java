@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Sorts {
 	
-	public int[] bubbleSort(int[] a)
+	public void bubbleSort(int[] a)
 	{
 		boolean swapped;
 		for(int i=0;i<a.length;i++)
@@ -15,11 +15,12 @@ public class Sorts {
 					{
 					swap(a,j-1,j);
 					swapped = true;
-					}
-				
-			}			
+					}				
+			}	
+			if(swapped==false)
+				return ;
 		}
-		return a;
+		return;
 	}
 	
 	private void swap(int[] a, int i, int j)
@@ -40,7 +41,7 @@ public class Sorts {
 		System.out.println("Sorted ");
 		//assert isSorted(arr);
 		Sorts sort = new Sorts();
-		arr = sort.bubbleSort(arr);
+		sort.bubbleSort(arr);
 		for(int x:arr)
 			System.out.print(x+" ");
 		assert isSorted(arr);
