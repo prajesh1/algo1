@@ -63,7 +63,7 @@ public class BinarySearchTrees {
 			return search(node.right,val);
 			
 	}
-	public int inOrdersucessor(int val)
+	public int inOrdersucessor(int val)  //very bad implementation check the floor implementation
 	{
 		return inOrder(findNode(root,val));
 		
@@ -120,6 +120,25 @@ public class BinarySearchTrees {
 			node = node.left;
 		return node.value;
 	}
+	
+	private int floor(int val) //largest int smaller or equal than val
+	{
+		Node node = root;
+		Node succ  = null;
+		while(node!=null)  //remeber to check if ==null
+		{
+			if(val<node.value)
+				node = node.left;
+			else if(val > node.value)
+			{
+				succ = node;
+				node = node.right;				
+			}
+			else return node.value;
+		}
+		if(succ==null) return -1;
+		return succ.value;
+	}
 	public static void main(String[] args) {
 		BinarySearchTrees bst = new BinarySearchTrees();
 		int[] a = {2,4,6,3,6,8,2,9,1,7,23,45,76,21,32,98,1,9};
@@ -127,8 +146,9 @@ public class BinarySearchTrees {
 		bst.insert(a);
 		bst.traverse();
 		System.out.println(" ");
-		System.out.println(bst.search(85));
-		System.out.println(bst.inOrdersucessor(97));
+		System.out.println("search"+bst.search(85));
+		//System.out.println(bst.inOrdersucessor(97));
+		System.out.println("floor"+bst.floor(120));
 
 	}
 
