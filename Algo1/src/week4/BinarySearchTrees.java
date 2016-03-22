@@ -124,20 +124,38 @@ public class BinarySearchTrees {
 	private int floor(int val) //largest int smaller or equal than val
 	{
 		Node node = root;
-		Node succ  = null;
+		Node pred  = null;
 		while(node!=null)  //remeber to check if ==null
 		{
 			if(val<node.value)
 				node = node.left;
 			else if(val > node.value)
 			{
-				succ = node;
+				pred = node;
 				node = node.right;				
 			}
 			else return node.value;
 		}
-		if(succ==null) return -1;
-		return succ.value;
+		if(pred==null) return -1;
+		return pred.value;
+	}
+	
+	private int inOrderPred(int val) //largest int smaller or equal than val
+	{
+		Node node = root;
+		Node pred  = null;
+		while(node!=null)  //remeber to check if ==null
+		{
+			 if(val > node.value)
+			{
+				pred = node;
+				node = node.right;				
+			}
+			else 	node = node.left;
+			
+		}
+		if(pred==null) return -1;
+		return pred.value;
 	}
 	public static void main(String[] args) {
 		BinarySearchTrees bst = new BinarySearchTrees();
@@ -148,7 +166,8 @@ public class BinarySearchTrees {
 		System.out.println(" ");
 		System.out.println("search"+bst.search(85));
 		//System.out.println(bst.inOrdersucessor(97));
-		System.out.println("floor"+bst.floor(120));
+		System.out.println("floor"+bst.floor(76));
+		System.out.println("InorderPred"+bst.inOrderPred(77 ));
 
 	}
 
