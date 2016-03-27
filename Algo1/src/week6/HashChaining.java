@@ -1,5 +1,7 @@
 package week6;
 
+import java.util.HashMap;
+
 public class HashChaining<Key,Value> {
   int M;
   Node[] chain;
@@ -45,12 +47,13 @@ public class HashChaining<Key,Value> {
   }
   public static void main(String[] args)
   {
-    HashChaining<Integer,String> hc = new HashChaining<Integer,String>(2);
+    HashChaining<Integer,String> hc = new HashChaining<Integer,String>(7);
+    //HashMap<Integer,String> hc = new HashMap<Integer,String>();
     hc.put(1, "prajesh");
     hc.put(2, "ashwin");
     hc.put(3, "kill");
-    hc.put(7, "prakash");
-    System.out.println(hc.get(7));
+    hc.put(7, null);
+    System.out.println(hc.get(3));
   }
 
 }
