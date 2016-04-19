@@ -37,8 +37,8 @@ public class FindSum {
 			int sum = arr[i]+arr[j];
 			
 			if(sum>0&&(arr[i]<0&&arr[j]<0)) // Integer Underflow happened, 
-				i++;						//sign of sum is opposite that of arr[i] and arr[j]
-											// k must be >=Integer.MIN_VALUE so increment
+				i++;			//sign of sum is opposite that of arr[i] and arr[j]
+							// k must be >=Integer.MIN_VALUE so increment
 			else if(sum<0&&(arr[i]>0&&arr[j]>0)) // Integer Overflow happened
 				j--;
 			else if(sum==k)
@@ -71,7 +71,7 @@ public class FindSum {
 	                count[k+1] += count[k];
 
 	            if (i == bucket-1)   // In Java the most significant is 1 for negative numbers
-	            {					// So for Most significant bit, we have to make sure +ve numbers come after -ve
+	            {			// So for Most significant bit, we have to make sure +ve numbers come after -ve
 	                int left = count[R] - count[R/2];
 	                int right = count[R/2];
 	                for (int r = 0; r < R/2; r++)  //Shifted +ve numbers to right
